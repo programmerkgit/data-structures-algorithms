@@ -1,0 +1,70 @@
+package tree.alds1_8_A
+
+class tree.alds1_8_B.tree.alds1_8_C.Node(
+    var parent: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
+    var left: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
+    var right: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
+    var key: Int = 0
+)
+
+
+fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
+    val n = readLine()!!.toInt()
+    var rootNode: tree.alds1_8_B.tree.alds1_8_C.Node? = null;
+    fun insert(node: tree.alds1_8_B.tree.alds1_8_C.Node, parentNode: tree.alds1_8_B.tree.alds1_8_C.Node) {
+        if (node.key < parentNode.key) {
+            if (parentNode.left == null) {
+                parentNode.left = node
+            } else {
+                insert(node, parentNode.left!!)
+            }
+        }
+        if (parentNode.key < node.key) {
+            if (parentNode.right == null) {
+                parentNode.right = node
+            } else {
+                insert(node, parentNode.right!!)
+            }
+        }
+    }
+
+    fun inOrder(node: tree.alds1_8_B.tree.alds1_8_C.Node?) {
+        if (node == null) {
+            return
+        }
+        inOrder(node.left)
+        print(" ${node.key}")
+        inOrder(node.right)
+    }
+
+    fun preOrder(node: tree.alds1_8_B.tree.alds1_8_C.Node?) {
+        if (node == null) {
+            return
+        }
+        print(" ${node.key}")
+        preOrder(node.left)
+        preOrder(node.right)
+    }
+
+    for (i in 0 until n) {
+        val line = readLine()!!.split(" ")
+        val instruction = line[0];
+        when (instruction) {
+            "print" -> {
+                inOrder(rootNode)
+                println()
+                preOrder(rootNode)
+                println()
+            }
+            "insert" -> {
+                val key = line[1].toInt()
+                val node = tree.alds1_8_B.tree.alds1_8_C.Node(key = key)
+                if (rootNode == null) {
+                    rootNode = node
+                } else {
+                    insert(node, rootNode)
+                }
+            }
+        }
+    }
+}

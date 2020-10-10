@@ -4,16 +4,16 @@ import java.util.*
 val pw = PrintWriter(System.out)
 val sc = Scanner(System.`in`)
 
-class Node {
+class tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node {
     var parent :Int = -1
     var leftChi :Int = -1
     var rightSib :Int = -1
 }
 
-fun main(args: Array<String>) {
+fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
     val n = nextInt()
     val fig = (0 until n).map { nextListOfInt() }
-    val str = Array(n){Node()}
+    val str = Array(n){tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node()}
     for(i in 0 until n){
         val id = fig[i][0]
         val k = fig[i][1]
@@ -39,7 +39,7 @@ fun main(args: Array<String>) {
 
 }
 
-fun getDepth(node :Int, str :Array<Node>) : Int{
+fun getDepth(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node>) : Int{
     var d = 0
     var n = node
     while(str[n].parent != -1){
@@ -49,7 +49,7 @@ fun getDepth(node :Int, str :Array<Node>) : Int{
     return d
 }
 
-fun getChild(node :Int, str :Array<Node>) : LinkedList<Int> {
+fun getChild(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node>) : LinkedList<Int> {
     val ans = LinkedList<Int>()
     if(str[node].leftChi != -1){
         ans.add(str[node].leftChi)

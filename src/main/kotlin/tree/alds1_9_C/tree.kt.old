@@ -1,19 +1,19 @@
 package tree.alds1_8_C
 
 
-private class Node(
-    var left: Node? = null,
-    var right: Node? = null,
-    var parent: Node? = null,
+private class tree.alds1_9_A.tree.alds1_11_D.Node(
+    var left: tree.alds1_9_A.tree.alds1_11_D.Node? = null,
+    var right: tree.alds1_9_A.tree.alds1_11_D.Node? = null,
+    var parent: tree.alds1_9_A.tree.alds1_11_D.Node? = null,
     var key: Int = 0
 )
 
 
-fun main(args: Array<String>) {
+fun tree.alds1_9_A.tree.alds1_9_C.tree.alds1_11_A.tree.alds1_11_B.tree.alds1_11_C.tree.alds1_11_D.tree.alds1_12_A.tree.alds1_12_B.tree.alds1_12_C.main(args: Array<String>) {
     val n = readLine()!!.toInt()
-    var rootNode: Node? = null;
-    fun insert(node: Node, parentNode: Node) {
-        var currentParent: Node? = parentNode
+    var rootNode: tree.alds1_9_A.tree.alds1_11_D.Node? = null;
+    fun insert(node: tree.alds1_9_A.tree.alds1_11_D.Node, parentNode: tree.alds1_9_A.tree.alds1_11_D.Node) {
+        var currentParent: tree.alds1_9_A.tree.alds1_11_D.Node? = parentNode
         var lastParent = currentParent!!
         while (currentParent != null) {
             lastParent = currentParent
@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
         }
     }
 
-    fun inOrder(node: Node?) {
+    fun inOrder(node: tree.alds1_9_A.tree.alds1_11_D.Node?) {
         if (node == null) {
             return
         }
@@ -40,7 +40,7 @@ fun main(args: Array<String>) {
         inOrder(node.right)
     }
 
-    fun preOrder(node: Node?) {
+    fun preOrder(node: tree.alds1_9_A.tree.alds1_11_D.Node?) {
         if (node == null) {
             return
         }
@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
     }
 
 
-    fun findNode(node: Node?, key: Int): Node? {
+    fun findNode(node: tree.alds1_9_A.tree.alds1_11_D.Node?, key: Int): tree.alds1_9_A.tree.alds1_11_D.Node? {
         if (node == null) {
             return null
         }
@@ -64,7 +64,7 @@ fun main(args: Array<String>) {
         }
     }
 
-    fun getMinimumNode(node: Node): Node {
+    fun getMinimumNode(node: tree.alds1_9_A.tree.alds1_11_D.Node): tree.alds1_9_A.tree.alds1_11_D.Node {
         var tempN = node
         while (tempN.left != null) {
             tempN = tempN.left!!
@@ -72,7 +72,7 @@ fun main(args: Array<String>) {
         return tempN
     }
 
-    fun getSuccessorNode(x: Node): Node? {
+    fun getSuccessorNode(x: tree.alds1_9_A.tree.alds1_11_D.Node): tree.alds1_9_A.tree.alds1_11_D.Node? {
         if (x.right != null) {
             return getMinimumNode(x.right!!)
         }
@@ -92,33 +92,24 @@ fun main(args: Array<String>) {
         } else {
             getSuccessorNode(z)!!
         }
+        val x = if (y.left != null) y.left else y.right
+        if (x != null) {
+            x.parent = y.parent
+        }
+        when {
+            y.parent == null -> {
+                rootNode = x
+            }
+            y == y.parent!!.left -> {
+                y.parent!!.left = x
+            }
+            else -> {
+                y.parent!!.right = x
+            }
+        }
         if (y != z) {
             z.key = y.key
         }
-        if (y.left == null && y.right == null) {
-            if (y.parent == null) {
-                rootNode = null
-            } else {
-                if (y.parent!!.left == y) {
-                    y.parent!!.left = null
-                } else {
-                    y.parent!!.right = null
-                }
-            }
-        } else {
-            val child = if (y.right != null) y.right!! else y.left!!
-            if (y.parent == null) {
-                rootNode = child
-            }
-            if (y.parent!!.left == y) {
-                y.parent!!.left = child
-            } else {
-                y.parent!!.right = child
-            }
-            child.parent = y.parent
-        }
-
-
     }
 
     for (i in 0 until n) {
@@ -133,7 +124,7 @@ fun main(args: Array<String>) {
             }
             "insert" -> {
                 val key = line[1].toInt()
-                val node = Node(key = key)
+                val node = tree.alds1_9_A.tree.alds1_11_D.Node(key = key)
                 if (rootNode == null) {
                     rootNode = node
                 } else {

@@ -1,17 +1,17 @@
 package tree.alds1_8_A
 
-class tree.alds1_8_B.tree.alds1_8_C.Node(
-    var parent: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
-    var left: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
-    var right: tree.alds1_8_B.tree.alds1_8_C.Node? = null,
+class tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node(
+    var parent: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node? = null,
+    var left: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node? = null,
+    var right: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node? = null,
     var key: Int = 0
 )
 
 
-fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
+fun tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_9_C.tree.alds1_11_A.tree.alds1_11_B.tree.alds1_11_C.tree.alds1_11_D.tree.alds1_12_A.tree.alds1_12_B.tree.alds1_12_C.main(args: Array<String>) {
     val n = readLine()!!.toInt()
-    var rootNode: tree.alds1_8_B.tree.alds1_8_C.Node? = null;
-    fun insert(node: tree.alds1_8_B.tree.alds1_8_C.Node, parentNode: tree.alds1_8_B.tree.alds1_8_C.Node) {
+    var rootNode: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node? = null;
+    fun insert(node: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node, parentNode: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node) {
         if (node.key < parentNode.key) {
             if (parentNode.left == null) {
                 parentNode.left = node
@@ -28,7 +28,7 @@ fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
         }
     }
 
-    fun inOrder(node: tree.alds1_8_B.tree.alds1_8_C.Node?) {
+    fun inOrder(node: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node?) {
         if (node == null) {
             return
         }
@@ -37,7 +37,7 @@ fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
         inOrder(node.right)
     }
 
-    fun preOrder(node: tree.alds1_8_B.tree.alds1_8_C.Node?) {
+    fun preOrder(node: tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node?) {
         if (node == null) {
             return
         }
@@ -58,7 +58,7 @@ fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
             }
             "insert" -> {
                 val key = line[1].toInt()
-                val node = tree.alds1_8_B.tree.alds1_8_C.Node(key = key)
+                val node = tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node(key = key)
                 if (rootNode == null) {
                     rootNode = node
                 } else {

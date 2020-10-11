@@ -4,16 +4,16 @@ import java.util.*
 val pw = PrintWriter(System.out)
 val sc = Scanner(System.`in`)
 
-class tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node {
+class tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node {
     var parent :Int = -1
     var leftChi :Int = -1
     var rightSib :Int = -1
 }
 
-fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
+fun tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_9_C.tree.alds1_11_A.tree.alds1_11_B.tree.alds1_11_C.tree.alds1_11_D.tree.alds1_12_A.tree.alds1_12_B.tree.alds1_12_C.main(args: Array<String>) {
     val n = nextInt()
     val fig = (0 until n).map { nextListOfInt() }
-    val str = Array(n){tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node()}
+    val str = Array(n){tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node()}
     for(i in 0 until n){
         val id = fig[i][0]
         val k = fig[i][1]
@@ -39,7 +39,7 @@ fun tree.alds1_8_B.tree.alds1_8_C.main(args: Array<String>) {
 
 }
 
-fun getDepth(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node>) : Int{
+fun getDepth(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node>) : Int{
     var d = 0
     var n = node
     while(str[n].parent != -1){
@@ -49,7 +49,7 @@ fun getDepth(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.
     return d
 }
 
-fun getChild(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.Node>) : LinkedList<Int> {
+fun getChild(node :Int, str :Array<tree.alds1_8_A.tree.alds1_8_B.tree.alds1_8_C.tree.alds1_9_A.tree.alds1_11_D.Node>) : LinkedList<Int> {
     val ans = LinkedList<Int>()
     if(str[node].leftChi != -1){
         ans.add(str[node].leftChi)

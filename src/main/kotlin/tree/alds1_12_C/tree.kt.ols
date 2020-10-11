@@ -1,0 +1,50 @@
+package tree.alds1_12_B
+
+
+private class tree.alds1_12_C.Vector(
+    val m: Int,
+    val weight: Int
+) {
+    override fun toString(): String {
+        return "m = $m, weight = $weight"
+    }
+}
+
+fun tree.alds1_12_C.main(arg: Array<String>) {
+    val n = readLine()!!.toInt()
+    val vectorsMatrix = MutableList(n) { mutableListOf<tree.alds1_12_C.Vector>() }
+    (0 until n).forEach { i ->
+        val edges = readLine()!!.split(" ").map { it.toInt() }
+        val c = edges[1]
+        (0 until c).forEach { ci ->
+            vectorsMatrix[i].add(tree.alds1_12_C.Vector(m = edges[ci * 2 + 2], weight = edges[ci * 2 + 2 + 1]))
+        }
+    }
+    val weights = MutableList(n) { 10_000_000 }
+    fun dikstra() {
+        var r = 0
+        val visited = MutableList(n) { false }
+        val ts = mutableListOf(r)
+        visited[r] = true
+        weights[r] = 0
+        while (ts.size != n) {
+            val edge = ts.flatMap { t ->
+                val edges = vectorsMatrix[t]
+                edges.forEach { v: tree.alds1_12_C.Vector ->
+                    if (v.weight + weights[t] < weights[v.m]) {
+                        weights[v.m] = v.weight + weights[t]
+                    }
+                }
+                edges
+            }.filter { !visited[it.m] }.minBy { it.weight }!!
+            r = edge.m
+            ts.add(r)
+            visited[r] = true
+        }
+    }
+    dikstra()
+    weights.forEachIndexed { i, w ->
+        println("$i $w")
+    }
+}
+
